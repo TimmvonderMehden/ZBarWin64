@@ -1,3 +1,7 @@
+Changes in branch tvdm:
+- use VS2017
+- fix a stack corruption (this bug fix is not confirmed due to rare occurence)
+
 ZBar Windows x64 port for VS2013
 ================================
 
