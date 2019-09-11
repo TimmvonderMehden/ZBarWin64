@@ -32,6 +32,8 @@
 
 #define GS ('\035')
 
+#define MAGIC_22 24 //sometimes, it seems to be at least 23 bytes long....
+
 enum { SCH_NUM, SCH_ALNUM, SCH_ISO646 };
 
 static const signed char finder_hash[0x20] = {
@@ -667,7 +669,7 @@ match_segment (zbar_decoder_t *dcode,
 static __inline unsigned
 lookup_sequence (databar_segment_t *seg,
                  int fixed,
-                 int seq[22])
+                 int seq[MAGIC_22])
 {
     unsigned n = seg->data / 211, i;
     const unsigned char *p;
@@ -680,6 +682,11 @@ lookup_sequence (databar_segment_t *seg,
     fixed >>= 1;
     seq[0] = 0;
     seq[1] = 1;
+
+	if (n >= MAGIC_22)
+	{
+		n = MAGIC_22-1;
+	}
     for(i = 2; i < n; ) {
         int s = *p;
         if(!(i & 2)) {
@@ -709,7 +716,7 @@ match_segment_exp (zbar_decoder_t *dcode,
                    int dir)
 {
     databar_decoder_t *db = &dcode->databar;
-    int bestsegs[22], i = 0, segs[22], seq[22];
+    int bestsegs[MAGIC_22], i = 0, segs[MAGIC_22], seq[MAGIC_22];
 	ptrdiff_t ifixed = seg - db->segs, fixed = IDX(seg), maxcnt = 0;
     int iseg[DATABAR_MAX_SEGMENTS];
     unsigned csegs = db->csegs, width = seg->width, maxage = 0x7fff;
