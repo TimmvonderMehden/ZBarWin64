@@ -5,3 +5,5 @@ Xfx_ZBar.props
 zbar64.sdf
 zbar64.v12.suo
 zbar64.vcxproj.user
+.gitignore.orig
+zbar64.sln.orig
