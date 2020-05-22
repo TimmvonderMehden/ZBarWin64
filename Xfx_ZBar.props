@@ -1,0 +1,24 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <CopyDLL>C:\dev\psake\XfxSyncProduct.bat $(MSBuildThisFileDirectory)..\..\lib\native\bin\$(Platform)\$(Configuration) $(XfxBase)\out\bin\$(Platform)\$(Configuration)\plugin\ *.dll $(ProjectName) &amp; $(CopyDLL)</CopyDLL>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+	<AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\..\lib\native\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)..\..\lib\native\lib\$(Platform);$(MSBuildThisFileDirectory)..\..\lib\native\lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>libzbar64-0.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+	  </Link>
+    <PreBuildEvent>
+      <Command>$(CopyDLL)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+    <ItemGroup>
+    <BuildMacro Include="CopyDLL">
+      <Value>$(CopyDLL)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
