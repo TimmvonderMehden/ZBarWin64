@@ -1,6 +1,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="UserMacros">
-    <CopyDLL>C:\dev\psake\XfxSyncProduct.bat $(MSBuildThisFileDirectory)..\..\lib\native\bin\$(Platform)\$(Configuration) $(XfxBase)\out\bin\$(Platform)\$(Configuration)\plugin\ *.dll $(ProjectName) &amp; $(CopyDLL)</CopyDLL>
+    <CopyDLL>C:\dev\psake\XfxSyncProduct.bat $(MSBuildThisFileDirectory)..\..\lib\native\bin\$(Platform)\$(Configuration) $(XfxBase)\out\$(PlatformToolset)\bin\$(Platform)\$(Configuration)\plugin\ *.dll $(ProjectName) &amp; $(CopyDLL)</CopyDLL>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>

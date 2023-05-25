@@ -2,14 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>Xfx_ZBar</id>
-        <version>0.10</version>
+        <version>1.3.1.2022</version>
         <authors>Xfx Autonuget</authors>
-        <owners>Xfx Autonuget</owners>
+        <owners>https://github.com/dani4/ZBarWin64.git </owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>commit f8c996cb2ed7b28fce99ba186c7191f4232af7b2</description>
-        <releaseNotes>build by Xfx/Jenkins/VS2017</releaseNotes>
-        <copyright>Copyright 2017-2019</copyright>
-        <tags>XfxAutoPackage</tags>
+        <description>commit 7d1180dcf3c915e4c648b677d65f9c6ff3734b56</description>
+        <releaseNotes>build by Xfx/Jenkins/VS2022</releaseNotes>
+        <copyright>Copyright 2017-2023</copyright>
+        <tags>native</tags>
+	<dependencies>
+            <group targetFramework="native"></group>
+        </dependencies>
     </metadata>	<files>
 		<file src="include\**" target="lib\native\include\" />
 		<file src="x64\Release\*.lib" target="lib\native\lib\x64\Release"/>
